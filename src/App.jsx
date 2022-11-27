@@ -1,15 +1,56 @@
-import React, { useState } from "react";
-import Body from "./components/Body";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
+import AnimeCard from "./components/AnimeCard";
+import { BsSearch } from "react-icons/bs";
 
 const App = () => {
   const [darkTheme, setDarkTheme] = useState(false);
+  const [search, setSearch] = useState("");
+  const [anime, setAnime] = useState([]);
+
+  const getApiCall = async () => {
+    await axios
+      .get(`https://api.jikan.moe/v4/anime?q=${search}&limit=12`)
+      .then((response) => {
+        console.log(response.data.data);
+        setAnime(response.data.data);
+      });
+  };
+
+  useEffect(() => {
+    getApiCall();
+  }, []);
+
+  const searchHandler = (e) => {
+    e.preventDefault();
+    getApiCall();
+  };
 
   return (
     <div className={darkTheme ? "dark" : ""}>
       <div className="bg-gray-100 min-h-screen dark:bg-fuchsia-800 font-architect">
         <Header darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
-        <Body />
+        <form
+          className="flex justify-center items-center mb-5"
+          onSubmit={searchHandler}
+        >
+          <input
+            type="text"
+            placeholder="Search an anime title..."
+            className="w-[500px] h-[40px] text-xl rounded-full p-3"
+            onChange={(e) => setSearch(e.target.value)}
+            value={search}
+          />
+          <BsSearch
+            size={20}
+            onClick={searchHandler}
+            className="ml-3 cursor-pointer"
+          />
+        </form>
+        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
+          <AnimeCard anime={anime} />
+        </div>
       </div>
     </div>
   );
