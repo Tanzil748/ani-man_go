@@ -25,6 +25,7 @@ const App = () => {
   const searchHandler = (e) => {
     e.preventDefault();
     getApiCall();
+    setSearch("");
   };
 
   return (
@@ -32,13 +33,13 @@ const App = () => {
       <div className="bg-gray-100 min-h-screen dark:bg-fuchsia-800 font-architect">
         <Header darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
         <form
-          className="flex justify-center items-center mb-5"
+          className="flex justify-center items-center mb-5 bg-yellow-400 mx-auto rounded-full max-w-[600px]"
           onSubmit={searchHandler}
         >
           <input
             type="text"
             placeholder="Search an anime title..."
-            className="w-[500px] h-[40px] text-xl rounded-full p-3"
+            className="w-[500px] h-[40px] text-xl p-3 bg-transparent outline-none placeholder-purple-900 "
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
