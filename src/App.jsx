@@ -11,7 +11,7 @@ const App = () => {
 
   const getApiCall = async () => {
     await axios
-      .get(`https://api.jikan.moe/v4/anime?q=${search}&limit=12`)
+      .get(`https://api.jikan.moe/v4/anime?q=${search}&limit=20`)
       .then((response) => {
         console.log(response.data.data);
         setAnime(response.data.data);
@@ -49,7 +49,7 @@ const App = () => {
             className="ml-3 cursor-pointer"
           />
         </form>
-        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
+        <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
           <AnimeCard anime={anime} />
         </div>
       </div>
