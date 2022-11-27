@@ -30,16 +30,16 @@ const App = () => {
 
   return (
     <div className={darkTheme ? "dark" : ""}>
-      <div className="bg-gray-100 min-h-screen dark:bg-fuchsia-800 font-architect">
+      <div className="bg-gray-100 min-h-screen dark:bg-[#1F1F1F] font-architect">
         <Header darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
         <form
-          className="flex justify-center items-center mb-5 bg-yellow-400 mx-auto rounded-full max-w-[600px]"
+          className="flex justify-center items-center mb-5 bg-yellow-300 dark:bg-yellow-200 mx-auto rounded-full max-w-[600px]"
           onSubmit={searchHandler}
         >
           <input
             type="text"
             placeholder="Search an anime title..."
-            className="w-[500px] h-[40px] text-xl p-3 bg-transparent outline-none placeholder-purple-900 "
+            className="w-[500px] h-[40px] text-xl p-3 bg-transparent outline-none placeholder-indigo-900 dark:placeholder-black"
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
