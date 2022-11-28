@@ -11,10 +11,10 @@ const CardModal = ({ openModal, modalData, setOpenModal }) => {
         >
           X
         </button>
-        <div className="p-5 bg-white ">
+        <div className="p-5 bg-indigo-900 text-white dark:bg-indigo-800 rounded-md shadow-lg shadow-yellow-300/40 ">
           <div>
             <b className="font-bold text-xl">Title:</b>{" "}
-            {modalData.title_english} |<span>{modalData.title_japanese}</span>{" "}
+            {modalData.title_english} | <span>{modalData.title_japanese}</span>{" "}
             <br />
             <b className="font-bold text-xl">Genre:</b>{" "}
             {modalData.genres[0].name} <br />
