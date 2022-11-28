@@ -45,7 +45,7 @@ const App = () => {
           <BsSearch
             size={20}
             onClick={searchHandler}
-            className="ml-3 cursor-pointer"
+            className="cursor-pointer mr-3"
           />
         </form>
         <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
