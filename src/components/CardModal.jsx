@@ -3,10 +3,10 @@ import React from "react";
 const CardModal = ({ openModal, modalData, setOpenModal }) => {
   if (!openModal) return null;
   return (
-    <div className="fixed inset-0 backdrop-blur-sm flex justify-center items-center">
-      <div className="w-[600px]">
+    <div className="fixed inset-0 backdrop-blur-sm flex justify-center items-center overflow-y-scroll">
+      <div className="w-[95%] h-[95%]">
         <button
-          className="text-red-500 text-2xl flex"
+          className="text-red-500 text-2xl fixed ml-2"
           onClick={() => setOpenModal(false)}
         >
           X
