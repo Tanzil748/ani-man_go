@@ -13,7 +13,6 @@ const App = () => {
     await axios
       .get(`https://api.jikan.moe/v4/anime?q=${search}&limit=20`)
       .then((response) => {
-        console.log(response.data.data);
         setAnime(response.data.data);
       });
   };

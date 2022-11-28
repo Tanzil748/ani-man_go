@@ -1,7 +1,11 @@
-import React from "react";
+import React, { Children, useState } from "react";
 import { AiFillInfoCircle } from "react-icons/ai";
+import CardModal from "./CardModal";
 
 const AnimeCard = ({ anime }) => {
+  const [openModal, setOpenModal] = useState(false);
+  const [modalData, setModalData] = useState(null);
+
   return (
     <>
       {anime
@@ -17,13 +21,27 @@ const AnimeCard = ({ anime }) => {
                   className="h-[90%] w-full rounded-md "
                 />
                 <h4 className="text-white">{anItem.title}</h4>
-                <button className="w-[33px] h-[45px] bg-transparent rounded-full absolute inset-y-0 right-0 z-10 hover:opacity-90">
-                  <AiFillInfoCircle size={30} color="grey" />
+                <button className="w-[30px] h-[40px] bg-transparent rounded-full absolute inset-y-0 right-1 hover:opacity-90">
+                  <AiFillInfoCircle
+                    size={30}
+                    color="grey"
+                    onClick={() => {
+                      setOpenModal(true);
+                      setModalData(anItem);
+                    }}
+                  ></AiFillInfoCircle>
                 </button>
               </div>
             );
           })
         : "No Matching Titles"}
+      <CardModal
+        openModal={openModal}
+        modalData={modalData}
+        setOpenModal={setOpenModal}
+      >
+        {Children}
+      </CardModal>
     </>
   );
 };
