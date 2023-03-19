@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <div className={darkTheme ? "dark" : ""}>
-      <div className="bg-gray-100 min-h-screen dark:bg-[#1F1F1F] font-architect">
+      <div className="bg-gray-100 min-h-screen dark:bg-[#1F1F1F]">
         <Header darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
         <form
           className="flex justify-center items-center mb-5 bg-yellow-300 dark:bg-yellow-200 mx-auto rounded-full max-w-[600px]"

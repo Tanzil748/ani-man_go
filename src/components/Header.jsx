@@ -5,7 +5,7 @@ const Header = ({ darkTheme, setDarkTheme }) => {
     <section className="flex justify-between p-5 w-screen">
       <div className="text-2xl text-stone-900 dark:text-stone-50">
         ANI-MAN
-        <strong className="text-indigo-700 dark:text-amber-400 font-extrabold">
+        <strong className="text-indigo-700 dark:text-amber-400 font-semibold">
           GO
         </strong>
       </div>

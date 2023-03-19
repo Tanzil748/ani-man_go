@@ -12,7 +12,7 @@ const AnimeCard = ({ anime }) => {
         ? anime.map((anItem) => {
             return (
               <div
-                className="w-[250px] h-[420px] bg-indigo-900 dark:bg-indigo-800 mx-auto mb-5 p-5 rounded-lg flex flex-col justify-between text-center relative font-extrabold text-md"
+                className="w-[250px] h-[420px] bg-indigo-900 dark:bg-indigo-800 mx-auto mb-5 p-5 rounded-lg flex flex-col justify-between text-center relative font-semibold text-md"
                 key={anItem.mal_id}
               >
                 <img
