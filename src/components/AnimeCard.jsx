@@ -1,47 +1,43 @@
-import React, { Children, useState } from "react";
-import { AiFillInfoCircle } from "react-icons/ai";
-import CardModal from "./CardModal";
+import React, { useState } from "react";
+import { AiFillHeart } from "react-icons/ai";
 
 const AnimeCard = ({ anime }) => {
-  const [openModal, setOpenModal] = useState(false);
-  const [modalData, setModalData] = useState(null);
-
   return (
     <>
       {anime
         ? anime.map((anItem) => {
             return (
               <div
-                className="w-[250px] h-[420px] bg-indigo-900 dark:bg-indigo-800 mx-auto mb-5 p-5 rounded-lg flex flex-col justify-between text-center relative font-semibold text-md"
+                className="flex flex-col text-center relative font-semibold text-md bg-neutral-800 hover:bg-neutral-900 p-3 rounded-lg h-full"
                 key={anItem.mal_id}
               >
                 <img
                   src={anItem.images.jpg.image_url}
                   alt="anime image"
-                  className="h-[90%] w-full rounded-md "
+                  className="w-full rounded-md flex-1"
                 />
-                <h4 className="text-white">{anItem.title}</h4>
-                <button className="w-[30px] h-[40px] bg-transparent rounded-full absolute inset-y-0 right-1 hover:opacity-90">
-                  <AiFillInfoCircle
+                <a
+                  href={anItem.url}
+                  target="_blank"
+                  key={anItem.mal_id}
+                  className="text-white mt-2 text-sm"
+                >
+                  {anItem.title}
+                </a>
+
+                <button className="w-[30px] h-[40px] bg-transparent rounded-full absolute top-0 right-1 hover:opacity-90">
+                  <AiFillHeart
                     size={30}
                     color="grey"
                     onClick={() => {
-                      setOpenModal(true);
-                      setModalData(anItem);
+                      console.log("clo");
                     }}
-                  ></AiFillInfoCircle>
+                  ></AiFillHeart>
                 </button>
               </div>
             );
           })
         : "No Matching Titles"}
-      <CardModal
-        openModal={openModal}
-        modalData={modalData}
-        setOpenModal={setOpenModal}
-      >
-        {Children}
-      </CardModal>
     </>
   );
 };
