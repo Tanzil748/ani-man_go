@@ -13,8 +13,7 @@ const Header = () => {
       <div className="container mx-auto">
         <div className="flex justify-between items-center py-3 px-3 md:px-0">
           <Link to="/ani-man_go/">
-            <div className="text-2xl text-stone-900 dark:text-stone-50 flex">
-              <img src="/favicon-32x32.png" alt="logo" className="pr-2" />
+            <div className="text-2xl text-stone-900 dark:text-stone-50">
               ANI-MAN
               <strong className="text-[#133a62] dark:text-amber-400 font-semibold">
                 GO
