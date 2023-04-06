@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 
 const Header = () => {
   const [nav, setNav] = useState(false);
@@ -12,24 +13,33 @@ const Header = () => {
       <div className="container mx-auto">
         <div className="flex justify-between items-center py-3 px-3 md:px-0">
           <Link to="/ani-man_go/">
-            <div className="text-2xl text-stone-900 dark:text-stone-50">
+            <div className="text-2xl text-stone-900 dark:text-stone-50 flex">
+              <img src="/favicon-32x32.png" alt="logo" className="pr-2" />
               ANI-MAN
-              <strong className="text-indigo-700 dark:text-amber-400 font-semibold">
+              <strong className="text-[#133a62] dark:text-amber-400 font-semibold">
                 GO
               </strong>
             </div>
           </Link>
 
           <div className="hidden md:block">
-            <button
-              className="py-2 px-3 bg-button rounded-full hover:shadow-lg"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            >
-              {theme === "dark" ? "💡" : "🌙"}
-            </button>
-            <Link to="/list" className="hover:text-accent pl-3">
+            <Link to="/list" className="hover:text-accent px-3">
               My List
             </Link>
+            |
+            <Link to="/signIn" className="hover:text-accent px-3">
+              Sign In
+            </Link>
+            |
+            <Link to="/register" className="hover:text-accent px-3">
+              Register
+            </Link>
+            <button
+              className="py-2 px-3 rounded-full text-white bg-card hover:scale-110"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              {theme === "dark" ? <BsFillSunFill /> : <BsFillMoonStarsFill />}
+            </button>
           </div>
 
           {/* Menu Icon */}
@@ -54,6 +64,12 @@ const Header = () => {
               </li>
               <li onClick={() => setNav(!nav)} className="border-b py-6">
                 <Link to="/list">My List</Link>
+              </li>
+              <li onClick={() => setNav(!nav)} className="border-b py-6">
+                <Link to="/signIn">Sign In</Link>
+              </li>
+              <li onClick={() => setNav(!nav)} className="border-b py-6">
+                <Link to="/register">Register</Link>
               </li>
             </ul>
           </div>

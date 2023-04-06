@@ -1,7 +1,7 @@
 import React from "react";
 
 const MyListPage = () => {
-  return <div className="min-h-[85vh]">MyListPage</div>;
+  return <div className="min-h-[80vh]">MyListPage</div>;
 };
 
 export default MyListPage;
