@@ -14,20 +14,14 @@ body {
 
 .dark {
   --color-bg-primary: #121318;
-  --color-bg-secondary: #283141;
   --color-text-primary: #dbdbdb;
-  --color-text-secondary: #e2e8f0;
-  --color-text-accent: #81e6d9;
-  --color-bg-input: #4a5361;
-  --color-bg-button: rgb(100, 89, 213);
+  --color-text-accent: #cfa950;
+  --color-bg-card: rgb(38, 38, 38);
 }
 
 .light {
   --color-bg-primary: #ffffff;
-  --color-bg-secondary: #edf2f7;
   --color-text-primary: #2d3748;
-  --color-text-secondary: #4a5568;
-  --color-text-accent: #2b6cb0;
-  --color-bg-input: #edf2f7;
-  --color-bg-button: rgb(67 56 202);
+  --color-text-accent: #1b5187;
+  --color-bg-card: #133a62;
 }

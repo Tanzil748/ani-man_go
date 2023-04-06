@@ -8,7 +8,7 @@ const AnimeCard = ({ anime }) => {
         ? anime.map((anItem) => {
             return (
               <div
-                className="flex flex-col text-center relative font-semibold text-md bg-neutral-800 hover:bg-neutral-900 p-3 rounded-lg h-full"
+                className="flex flex-col text-center relative font-semibold text-md bg-card hover:bg-[#1d5592] dark:hover:bg-neutral-900 p-3 rounded-lg h-full"
                 key={anItem.mal_id}
               >
                 <img
@@ -20,7 +20,7 @@ const AnimeCard = ({ anime }) => {
                   href={anItem.url}
                   target="_blank"
                   key={anItem.mal_id}
-                  className="text-white mt-2 text-sm"
+                  className="text-white mt-2 text-xs sm:text-sm"
                 >
                   {anItem.title}
                 </a>

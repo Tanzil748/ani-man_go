@@ -2,13 +2,13 @@ import React from "react";
 
 const Sidebar = ({ topAnime }) => {
   return (
-    <div className="bg-neutral-800 text-white rounded-md p-2">
-      <div className="p-4 border-b-2">
+    <div className="bg-card  text-white rounded-md p-2">
+      <div className="p-4">
         <h1 className="text-center text-xl">🔥 Hot Anime 🔥</h1>
       </div>
       {topAnime.map((animeTitle) => (
         <ul
-          className="border-b-2 border-slate-600 p-2 hover:bg-neutral-900"
+          className="border-t-2 border-white dark:border-slate-600 p-2 hover:bg-[#1d5592] dark:hover:bg-neutral-900"
           key={animeTitle.mal_id}
         >
           <li className="flex gap-3">
@@ -21,10 +21,12 @@ const Sidebar = ({ topAnime }) => {
               {animeTitle.title}
               <br />
               <div className="text-xs">
-                <span className="text-slate-500">Genres: </span>
+                <span className="text-slate-400 dark:text-slate-500">
+                  Genres:{" "}
+                </span>
                 {/* rendering only two genres */}
                 {animeTitle.genres[0].name}, {animeTitle.genres[1].name}
-                <p className="text-slate-500">
+                <p className="text-slate-400 dark:text-slate-500">
                   Rank:{" "}
                   <span className="text-white font-semibold">
                     {animeTitle.rank}

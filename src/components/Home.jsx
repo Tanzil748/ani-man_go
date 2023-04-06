@@ -12,9 +12,12 @@ const Home = () => {
   // call api when requesting anime title
   const getApiSearch = async () => {
     await axios
-      .get(`https://api.jikan.moe/v4/anime?q=${search}&limit=20`)
-      .then((response) => {
-        setAnime(response.data.data);
+      .get(`https://api.jikan.moe/v4/anime?q=${search}&limit=28`)
+      .then((responses) => {
+        // filtered out objects w/ null value to avoid 404 page
+        setAnime(
+          responses.data.data.filter((response) => response.background !== null)
+        );
       });
   };
 
@@ -50,14 +53,14 @@ const Home = () => {
           <input
             type="text"
             placeholder="Search an anime title..."
-            className="w-[500px] h-[40px] text-xl p-3 bg-transparent outline-none placeholder-indigo-900 dark:placeholder-black text-black"
+            className="w-[500px] h-[40px] text-xl p-3 bg-transparent outline-none placeholder-black text-black"
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
           <BsSearch
             size={20}
             onClick={searchHandler}
-            className="cursor-pointer mr-3 text-indigo-900 dark:text-black"
+            className="cursor-pointer mr-3 text-black"
           />
         </form>
       </div>
@@ -65,7 +68,7 @@ const Home = () => {
       <div className="flex justify-center gap-3">
         {/* anime cards */}
         <div className="basis-3/4 min-h-screen">
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             <AnimeCard anime={anime} />
           </div>
         </div>
