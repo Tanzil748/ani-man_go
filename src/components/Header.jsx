@@ -1,12 +1,24 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
+import { userAuth } from "../context/AuthContext";
 
 const Header = () => {
   const [nav, setNav] = useState(false);
   const { theme, setTheme } = useContext(ThemeContext);
+  const { user, logOut } = userAuth();
+  const navigate = useNavigate();
+
+  const logOutHandler = async () => {
+    try {
+      await logOut();
+      navigate("/ani-man_go/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <section className="border-b-2">
@@ -21,25 +33,46 @@ const Header = () => {
             </div>
           </Link>
 
-          <div className="hidden md:block">
-            <Link to="/list" className="hover:text-accent px-3">
-              My List
-            </Link>
-            |
-            <Link to="/signIn" className="hover:text-accent px-3">
-              Sign In
-            </Link>
-            |
-            <Link to="/register" className="hover:text-accent px-3">
-              Register
-            </Link>
-            <button
-              className="py-2 px-3 rounded-full text-white bg-card hover:scale-110"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            >
-              {theme === "dark" ? <BsFillSunFill /> : <BsFillMoonStarsFill />}
-            </button>
-          </div>
+          {user?.email ? (
+            <div className="hidden md:block">
+              <Link to="/list" className="hover:text-accent px-3">
+                My List
+              </Link>
+              |
+              <button
+                onClick={logOutHandler}
+                className="hover:text-accent px-3"
+              >
+                Sign Out
+              </button>
+              <button
+                className="py-2 px-3 rounded-full text-white bg-card hover:scale-110"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              >
+                {theme === "dark" ? <BsFillSunFill /> : <BsFillMoonStarsFill />}
+              </button>
+            </div>
+          ) : (
+            <div className="hidden md:block">
+              <Link to="/list" className="hover:text-accent px-3">
+                My List
+              </Link>
+              |
+              <Link to="/signIn" className="hover:text-accent px-3">
+                Sign In
+              </Link>
+              |
+              <Link to="/register" className="hover:text-accent px-3">
+                Register
+              </Link>
+              <button
+                className="py-2 px-3 rounded-full text-white bg-card hover:scale-110"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              >
+                {theme === "dark" ? <BsFillSunFill /> : <BsFillMoonStarsFill />}
+              </button>
+            </div>
+          )}
 
           {/* Menu Icon */}
           <div

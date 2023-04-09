@@ -1,12 +1,21 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { userAuth } from "../context/AuthContext";
 
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { register, user } = userAuth();
+  const navigate = useNavigate();
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
+    try {
+      await register(email, password);
+      navigate("/ani-man_go/");
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="flex justify-center items-center min-h-[80vh]">
@@ -43,7 +52,7 @@ const RegisterPage = () => {
               value={password}
             />
           </div>
-          <button className="w-full py-2 bg-red-500 rounded">
+          <button className="w-full py-2 bg-amber-500 rounded">
             Register Account
           </button>
           <div className="text-sm">

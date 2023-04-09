@@ -1,12 +1,21 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { userAuth } from "../context/AuthContext";
 
 const SignInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const { user, signIn } = userAuth();
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
+    try {
+      await signIn(email, password);
+      navigate("/ani-man_go/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -44,7 +53,7 @@ const SignInPage = () => {
               value={password}
             />
           </div>
-          <button className="w-full py-2 bg-red-500 rounded">Sign In</button>
+          <button className="w-full py-2 bg-amber-500 rounded">Sign In</button>
           <div className="text-sm">
             <p>Don't have an account?</p>
             <Link to="/register" className="border-b-2">

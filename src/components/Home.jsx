@@ -12,12 +12,9 @@ const Home = () => {
   // call api when requesting anime title
   const getApiSearch = async () => {
     await axios
-      .get(`https://api.jikan.moe/v4/anime?q=${search}&limit=28`)
-      .then((responses) => {
-        // filtered out objects w/ null value to avoid 404 page
-        setAnime(
-          responses.data.data.filter((response) => response.background !== null)
-        );
+      .get(`https://api.jikan.moe/v4/anime?q=${search}&limit=20`)
+      .then((response) => {
+        setAnime(response.data.data);
       });
   };
 
