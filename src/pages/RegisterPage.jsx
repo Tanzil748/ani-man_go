@@ -12,7 +12,7 @@ const RegisterPage = () => {
     e.preventDefault();
     try {
       await register(email, password);
-      navigate("/ani-man_go/");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }

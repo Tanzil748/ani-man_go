@@ -14,7 +14,7 @@ const Header = () => {
   const logOutHandler = async () => {
     try {
       await logOut();
-      navigate("/ani-man_go/");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -24,7 +24,7 @@ const Header = () => {
     <section className="border-b-2">
       <div className="container mx-auto">
         <div className="flex justify-between items-center py-3 px-3 md:px-0">
-          <Link to="/ani-man_go/">
+          <Link to="/">
             <div className="text-2xl text-stone-900 dark:text-stone-50">
               ANI-MAN
               <strong className="text-[#133a62] dark:text-amber-400 font-semibold">
@@ -54,10 +54,6 @@ const Header = () => {
             </div>
           ) : (
             <div className="hidden md:block">
-              <Link to="/list" className="hover:text-accent px-3">
-                My List
-              </Link>
-              |
               <Link to="/signIn" className="hover:text-accent px-3">
                 Sign In
               </Link>
@@ -90,20 +86,31 @@ const Header = () => {
                 : "fixed left-[-100%] top-20 h-[90%] flex flex-col items-center justify-between"
             }
           >
-            <ul className="w-full text-center">
-              <li onClick={() => setNav(!nav)} className="border-b py-6">
-                <Link to="/ani-man_go/">Home</Link>
-              </li>
-              <li onClick={() => setNav(!nav)} className="border-b py-6">
-                <Link to="/list">My List</Link>
-              </li>
-              <li onClick={() => setNav(!nav)} className="border-b py-6">
-                <Link to="/signIn">Sign In</Link>
-              </li>
-              <li onClick={() => setNav(!nav)} className="border-b py-6">
-                <Link to="/register">Register</Link>
-              </li>
-            </ul>
+            {user?.email ? (
+              <ul className="w-full text-center">
+                <li onClick={() => setNav(!nav)} className="border-b py-6">
+                  <Link to="/">Home</Link>
+                </li>
+                <li onClick={() => setNav(!nav)} className="border-b py-6">
+                  <Link to="/list">My List</Link>
+                </li>
+                <li onClick={logOutHandler} className="border-b py-6">
+                  Sign Out
+                </li>
+              </ul>
+            ) : (
+              <ul className="w-full text-center">
+                <li onClick={() => setNav(!nav)} className="border-b py-6">
+                  <Link to="/">Home</Link>
+                </li>
+                <li onClick={() => setNav(!nav)} className="border-b py-6">
+                  <Link to="/signIn">Sign In</Link>
+                </li>
+                <li onClick={() => setNav(!nav)} className="border-b py-6">
+                  <Link to="/register">Register</Link>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </div>

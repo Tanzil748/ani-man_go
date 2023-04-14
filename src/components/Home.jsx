@@ -66,7 +66,9 @@ const Home = () => {
         {/* anime cards */}
         <div className="basis-3/4 min-h-screen">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            <AnimeCard anime={anime} />
+            {anime.map((data) => (
+              <AnimeCard data={data} key={data.mal_id} />
+            ))}
           </div>
         </div>
 
