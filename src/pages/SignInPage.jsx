@@ -12,7 +12,7 @@ const SignInPage = () => {
     e.preventDefault();
     try {
       await signIn(email, password);
-      navigate("/");
+      navigate("/ani-man_go/");
     } catch (error) {
       console.log(error);
     }

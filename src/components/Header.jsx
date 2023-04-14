@@ -14,7 +14,7 @@ const Header = () => {
   const logOutHandler = async () => {
     try {
       await logOut();
-      navigate("/");
+      navigate("/ani-man_go/");
     } catch (error) {
       console.log(error);
     }
@@ -24,7 +24,7 @@ const Header = () => {
     <section className="border-b-2">
       <div className="container mx-auto">
         <div className="flex justify-between items-center py-3 px-3 md:px-0">
-          <Link to="/">
+          <Link to="/ani-man_go/">
             <div className="text-2xl text-stone-900 dark:text-stone-50">
               ANI-MAN
               <strong className="text-[#133a62] dark:text-amber-400 font-semibold">
@@ -89,7 +89,7 @@ const Header = () => {
             {user?.email ? (
               <ul className="w-full text-center">
                 <li onClick={() => setNav(!nav)} className="border-b py-6">
-                  <Link to="/">Home</Link>
+                  <Link to="/ani-man_go/">Home</Link>
                 </li>
                 <li onClick={() => setNav(!nav)} className="border-b py-6">
                   <Link to="/list">My List</Link>
@@ -101,7 +101,7 @@ const Header = () => {
             ) : (
               <ul className="w-full text-center">
                 <li onClick={() => setNav(!nav)} className="border-b py-6">
-                  <Link to="/">Home</Link>
+                  <Link to="/ani-man_go/">Home</Link>
                 </li>
                 <li onClick={() => setNav(!nav)} className="border-b py-6">
                   <Link to="/signIn">Sign In</Link>
