@@ -28,7 +28,7 @@ const MyListPage = () => {
 
   return (
     <div className="container mx-auto my-2 min-h-[80vh]">
-      <h1 className="text-black dark:text-white text-center text-xl">
+      <h1 className="text-black dark:text-white text-center text-xl mb-3">
         ❤️‍🔥 My Favorite Animes ❤️‍🔥
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
