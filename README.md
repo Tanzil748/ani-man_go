@@ -7,11 +7,22 @@ Ani-Mango is an application that allows users to search and save their favorite 
 ## Demo
 
 Here's a walkthrough of how the app functions:
+- A user registers an account to save anime titles to favorite list. No registered email results in fail popup.
+![](https://github.com/Tanzil748/ani-man_go/blob/main/gif/ani-mango_display.gif)
+<br/>
 
-![](https://github.com/Tanzil748/ani-man_go/blob/main/ani-mango_display.gif)
+- User can now see their list. All cards are clickable and redirect to information page. Firestore updates in real-time as user adds/delete titles.
+![](https://github.com/Tanzil748/ani-man_go/blob/main/gif/secondPart.gif)
+
+## Firebase
+- Here is how the firebase database looks like. We are able to see all registered users & can do a variety of actions (delete account, disable account, reset password).
+![](https://github.com/Tanzil748/ani-man_go/blob/main/gif/authPic.png)
+<br/>
+
+- In the firestore, we can view all the users & their favorited anime list:
+![](https://github.com/Tanzil748/ani-man_go/blob/main/gif/fireStorePic.png)
 
 ## Deployment
-
 Clone this repository and install all dependencies via the terminal:
 
 ```bash
@@ -64,5 +75,5 @@ The app will run on port 5173 as below:
 │       └── Sidebar.jsx
 ├── <strong>public</strong>
 │   └── favicon.png
-└── GIF
+└── <strong>GIF</strong>
 </pre>
