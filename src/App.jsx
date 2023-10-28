@@ -15,7 +15,7 @@ const App = () => {
       <AuthProvider>
         <Header />
         <Routes>
-          <Route path="/ani-man_go/" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/list" element={<MyListPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/signIn" element={<SignInPage />} />
