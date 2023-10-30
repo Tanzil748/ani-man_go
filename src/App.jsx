@@ -8,6 +8,7 @@ import MyListPage from "./pages/MyListPage";
 import RegisterPage from "./pages/RegisterPage";
 import SignInPage from "./pages/SignInPage";
 import Footer from "./components/Footer";
+import SelectedAnime from "./pages/SelectedAnime";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/list" element={<MyListPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/signIn" element={<SignInPage />} />
+          <Route path="/anime/:id" element={<SelectedAnime />} />
         </Routes>
         <Footer />
       </AuthProvider>

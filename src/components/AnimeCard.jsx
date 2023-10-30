@@ -3,6 +3,7 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { userAuth } from "../context/AuthContext";
 import { db } from "../firebase";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 const AnimeCard = ({ data }) => {
   const { user } = userAuth();
@@ -31,18 +32,16 @@ const AnimeCard = ({ data }) => {
   return (
     <>
       <div className="flex flex-col text-center relative font-semibold text-md bg-card hover:bg-[#1d5592] dark:hover:bg-neutral-900 p-3 rounded-lg h-full">
-        <img
-          src={data.images.jpg.image_url}
-          alt="anime image"
-          className="w-full rounded-md flex-1"
-        />
-        <a
-          href={data.url}
-          target="_blank"
-          className="text-white mt-2 text-xs sm:text-sm"
-        >
-          {data.title}
-        </a>
+        <Link to={`/anime/${data.mal_id}`}>
+          <img
+            src={data.images.jpg.image_url}
+            alt="anime image"
+            className="w-60 h-80"
+          />
+          <p className="text-white mt-2 text-xs sm:text-sm truncate">
+            {data.title}
+          </p>
+        </Link>
 
         <button
           className="w-[30px] h-[40px] bg-transparent rounded-full absolute top-0 right-1 hover:opacity-90"

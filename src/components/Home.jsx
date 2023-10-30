@@ -1,3 +1,5 @@
+// this component will be removed in the next commit, slowly cleaning my code up
+
 import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import AnimeCard from "./AnimeCard";
@@ -40,7 +42,7 @@ const Home = () => {
   };
 
   return (
-    <section className="container mx-auto min-h-screen xl:min-h-[165vh]">
+    <section className="min-h-screen xl:min-h-[140vh]">
       {/* search bar */}
       <div className="mt-10">
         <form
@@ -62,7 +64,7 @@ const Home = () => {
         </form>
       </div>
 
-      <div className="flex justify-center gap-3">
+      <div className="container mx-auto flex justify-center gap-3">
         {/* anime cards */}
         <div className="basis-3/4 min-h-screen">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
