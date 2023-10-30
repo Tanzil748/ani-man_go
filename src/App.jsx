@@ -9,6 +9,7 @@ import RegisterPage from "./pages/RegisterPage";
 import SignInPage from "./pages/SignInPage";
 import Footer from "./components/Footer";
 import SelectedAnime from "./pages/SelectedAnime";
+import SearchPage from "./pages/SearchPage";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/search" element={<SearchPage />} />
           <Route path="/list" element={<MyListPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/signIn" element={<SignInPage />} />

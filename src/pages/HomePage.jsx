@@ -12,7 +12,7 @@ const HomePage = () => {
 
   const getHotAnime = async () => {
     await axios
-      .get("https://api.jikan.moe/v4/top/anime?limit=10")
+      .get("https://api.jikan.moe/v4/top/anime")
       .then((res) => setHotAnime(res.data.data));
   };
 
@@ -50,7 +50,6 @@ const HomePage = () => {
             <AnimeCard data={data} key={data.mal_id} />
           ))}
         </div>
-        {console.log(upcomingAnime)}
       </div>
     </section>
   );

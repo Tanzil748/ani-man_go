@@ -1,0 +1,16 @@
+#search-section {
+  min-height: 83vh;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.anime-grid {
+  margin: 10px auto;
+  max-width: 1280px;
+  justify-items: center;
+}

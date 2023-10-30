@@ -35,6 +35,10 @@ const Header = () => {
 
           {user?.email ? (
             <div className="hidden md:block">
+              <Link to="/search" className="hover:text-accent px-3">
+                Search Anime
+              </Link>
+              |
               <Link to="/list" className="hover:text-accent px-3">
                 My List
               </Link>
@@ -54,6 +58,10 @@ const Header = () => {
             </div>
           ) : (
             <div className="hidden md:block">
+              <Link to="/search" className="hover:text-accent px-3">
+                Search Anime
+              </Link>
+              |
               <Link to="/signIn" className="hover:text-accent px-3">
                 Sign In
               </Link>
@@ -92,6 +100,9 @@ const Header = () => {
                   <Link to="/">Home</Link>
                 </li>
                 <li onClick={() => setNav(!nav)} className="border-b py-6">
+                  <Link to="/search">Search Anime</Link>
+                </li>
+                <li onClick={() => setNav(!nav)} className="border-b py-6">
                   <Link to="/list">My List</Link>
                 </li>
                 <li onClick={logOutHandler} className="border-b py-6">
@@ -102,6 +113,9 @@ const Header = () => {
               <ul className="w-full text-center">
                 <li onClick={() => setNav(!nav)} className="border-b py-6">
                   <Link to="/">Home</Link>
+                </li>
+                <li onClick={() => setNav(!nav)} className="border-b py-6">
+                  <Link to="/search">Search Anime</Link>
                 </li>
                 <li onClick={() => setNav(!nav)} className="border-b py-6">
                   <Link to="/signIn">Sign In</Link>
