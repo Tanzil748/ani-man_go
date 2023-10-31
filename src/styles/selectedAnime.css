@@ -1,0 +1,51 @@
+#selected-anime-page {
+  min-height: 83vh;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+    "img-side meta-info meta-info meta-info meta-info"
+    "img-side meta-info meta-info meta-info meta-info"
+    "character-slider character-slider character-slider character-slider character-slider";
+  max-width: 1280px;
+  margin: 20px auto;
+}
+
+#img-side {
+  grid-area: img-side;
+}
+
+#meta-info {
+  grid-area: meta-info;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+#character-slider {
+  grid-area: character-slider;
+}
+
+@media (max-width: 400px) {
+  .video-dimension {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  #selected-anime-page {
+    grid-template-areas:
+      "img-side img-side meta-info meta-info meta-info"
+      "img-side img-side meta-info meta-info meta-info"
+      "character-slider character-slider character-slider character-slider character-slider";
+  }
+}
+
+@media (max-width: 701px) {
+  #selected-anime-page {
+    grid-template-areas:
+      "img-side img-side img-side img-side img-side"
+      "meta-info meta-info meta-info meta-info meta-info"
+      "character-slider character-slider character-slider character-slider character-slider";
+  }
+}
