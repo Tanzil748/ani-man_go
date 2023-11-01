@@ -13,11 +13,12 @@ const AuthContext = createContext();
 
 // wrap all child components in project with AuthContext
 export const AuthProvider = ({ children }) => {
+  // this state checks if the user is an authenticated one
   const [user, setUser] = useState({});
   const register = async (email, password) => {
     await createUserWithEmailAndPassword(auth, email, password);
     await setDoc(doc(db, "users", email), {
-      favorited: [],
+      bookmarked: [],
     });
   };
 
@@ -36,7 +37,7 @@ export const AuthProvider = ({ children }) => {
     return () => {
       checkUser();
     };
-  });
+  }, []);
 
   return (
     <AuthContext.Provider value={{ register, signIn, logOut, user }}>

@@ -2,13 +2,43 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../styles/selectedAnime.css";
-import { BsBookmarkStarFill } from "react-icons/bs";
+import { BsBookmarkStarFill, BsBookmarkStar } from "react-icons/bs";
+import { userAuth } from "../context/AuthContext";
+import { db } from "../firebase";
+import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 
 const SelectedAnime = () => {
+  // anime id grabbed from URL - use it in API call's later
   const { id } = useParams();
 
+  //   firebase related calls
+  const { user } = userAuth();
+  const [saved, setSaved] = useState(false);
+  const [isBook, setIsBook] = useState(false);
+
+  // api related calls
   const [anime, setAnime] = useState({});
   const [charList, setCharList] = useState([]);
+
+  //   saving user-specific data under this document
+  const animeTitleRef = doc(db, "users", `${user?.email}`);
+
+  //   firebase function => book button logic
+  const bookmarkedTitles = async () => {
+    {
+      user?.email
+        ? (setIsBook(!isBook),
+          setSaved(true),
+          await updateDoc(animeTitleRef, {
+            bookmarked: arrayUnion({
+              id: anime.mal_id,
+              img: anime.images.jpg.image_url,
+              title: anime.title,
+            }),
+          }))
+        : alert("Login to save titles to profile");
+    }
+  };
 
   const getAnime = async (chosenId) => {
     await axios
@@ -39,9 +69,22 @@ const SelectedAnime = () => {
     <div id="selected-anime-page">
       <div id="img-side" className="p-2">
         <div className="flex justify-end mb-2">
-          <button className="flex gap-2 items-center bg-amber-500 py-1 px-3 rounded-md text-white">
-            Bookmark
-            <BsBookmarkStarFill />
+          <button
+            className="bg-amber-500 py-1 px-3 rounded-md text-white"
+            onClick={bookmarkedTitles}
+          >
+            {/* if bookmarked => fill appearance */}
+            {!saved ? (
+              <div className="flex gap-2 items-center">
+                Bookmark
+                <BsBookmarkStar />
+              </div>
+            ) : (
+              <div className="flex gap-2 items-center">
+                Bookmarked
+                <BsBookmarkStarFill />
+              </div>
+            )}
           </button>
         </div>
         <img
@@ -86,7 +129,9 @@ const SelectedAnime = () => {
         </div>
         {anime.producers && anime.producers.length > 0 && (
           <div className="flex flex-wrap items-center mb-2">
-            <p className="font-semibold text-sm text-zinc-500">Produced By:</p>
+            <p className="font-semibold text-sm text-zinc-500 mr-2">
+              Produced By:
+            </p>
             {anime.producers.map((producer, i) => {
               return (
                 <span key={i} className="font-medium text-sm">

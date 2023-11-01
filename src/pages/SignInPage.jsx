@@ -6,7 +6,7 @@ const SignInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { user, signIn } = userAuth();
+  const { signIn } = userAuth();
 
   const submitHandler = async (e) => {
     e.preventDefault();

@@ -5,7 +5,7 @@ import { userAuth } from "../context/AuthContext";
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { register, user } = userAuth();
+  const { register } = userAuth();
   const navigate = useNavigate();
 
   const submitHandler = async (e) => {
