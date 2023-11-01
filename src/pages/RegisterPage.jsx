@@ -18,7 +18,7 @@ const RegisterPage = () => {
     }
   };
   return (
-    <div className="flex justify-center items-center min-h-[80vh]">
+    <div className="flex justify-center items-center min-h-[86vh]">
       <form
         className="bg-card w-96 text-white rounded px-4 py-8"
         onSubmit={submitHandler}

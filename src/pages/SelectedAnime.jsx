@@ -132,7 +132,7 @@ const SelectedAnime = () => {
             <p className="font-semibold text-sm text-zinc-500 mr-2">
               Produced By:
             </p>
-            {anime.producers.map((producer, i) => {
+            {anime?.producers?.map((producer, i) => {
               return (
                 <span key={i} className="font-medium text-sm">
                   {i !== anime.producers.length && i !== 0 && ", "}
@@ -164,8 +164,11 @@ const SelectedAnime = () => {
           </h1>
           {/* similar to my anime card list code - excluded link */}
           <div className="flex overflow-x-auto">
-            {charList.map((data) => (
-              <div className="flex-none mr-2 text-center relative bg-card hover:bg-[#1d5592] dark:hover:bg-neutral-900 p-3 rounded-lg group">
+            {charList.map((data, i) => (
+              <div
+                className="flex-none mr-2 text-center relative bg-card hover:bg-[#1d5592] dark:hover:bg-neutral-900 p-3 rounded-lg group"
+                key={i}
+              >
                 <img
                   src={data.character.images.jpg.image_url}
                   alt="anime image"

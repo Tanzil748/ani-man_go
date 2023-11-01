@@ -83,44 +83,50 @@ const Header = () => {
             onClick={() => setNav(!nav)}
             className="block md:hidden cursor-pointer z-10"
           >
-            {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
+            <AiOutlineMenu size={30} />
           </div>
 
           {/* Mobile Menu */}
           <div
             className={
               nav
-                ? "md:hidden fixed left-0 top-20 flex flex-col items-center justify-between w-full h-[90%] bg-primary z-10"
-                : "fixed left-[-100%] top-20 h-[90%] flex flex-col items-center justify-between"
+                ? "md:hidden fixed right-0 top-0 w-full h-full bg-primary z-10 transition-transform duration-300 ease-in-out transform translate-x-0"
+                : "fixed right-[-100%] top-0 h-full transition-transform duration-300 ease-in-out transform translate-x-full"
             }
           >
             {user?.email ? (
-              <ul className="w-full text-center">
-                <li onClick={() => setNav(!nav)} className="border-b py-6">
+              <ul className="w-full flex flex-col justify-center items-center">
+                <li onClick={() => setNav(!nav)} className="py-6 ml-auto mr-3">
+                  <AiOutlineClose size={30} />
+                </li>
+                <li onClick={() => setNav(!nav)} className="py-6">
                   <Link to="/">Home</Link>
                 </li>
-                <li onClick={() => setNav(!nav)} className="border-b py-6">
+                <li onClick={() => setNav(!nav)} className="py-6">
                   <Link to="/search">Search Anime</Link>
                 </li>
-                <li onClick={() => setNav(!nav)} className="border-b py-6">
+                <li onClick={() => setNav(!nav)} className="py-6">
                   <Link to="/list">My List</Link>
                 </li>
-                <li onClick={logOutHandler} className="border-b py-6">
+                <li onClick={logOutHandler} className="py-6">
                   Sign Out
                 </li>
               </ul>
             ) : (
-              <ul className="w-full text-center">
-                <li onClick={() => setNav(!nav)} className="border-b py-6">
+              <ul className="w-full flex flex-col justify-center items-center">
+                <li onClick={() => setNav(!nav)} className="py-6 ml-auto mr-3">
+                  <AiOutlineClose size={30} />
+                </li>
+                <li onClick={() => setNav(!nav)} className="py-6">
                   <Link to="/">Home</Link>
                 </li>
-                <li onClick={() => setNav(!nav)} className="border-b py-6">
+                <li onClick={() => setNav(!nav)} className="py-6">
                   <Link to="/search">Search Anime</Link>
                 </li>
-                <li onClick={() => setNav(!nav)} className="border-b py-6">
+                <li onClick={() => setNav(!nav)} className="py-6">
                   <Link to="/signIn">Sign In</Link>
                 </li>
-                <li onClick={() => setNav(!nav)} className="border-b py-6">
+                <li onClick={() => setNav(!nav)} className="py-6">
                   <Link to="/register">Register</Link>
                 </li>
               </ul>
