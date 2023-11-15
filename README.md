@@ -11,17 +11,17 @@ Ani-Mango is an application that allows users to search and save their favorite 
 Here's a walkthrough of how the app functions:
 
 - The user enters the home page and can scroll through the many categories displayed. Each card is clickable and the slider has a button for more details.
-  ![](https://github.com/Tanzil748/ani-man_go/blob/main/gif/ani-mango_display.gif)
+  ![](https://github.com/Tanzil748/ani-man_go/blob/main/gif/aniGif_1.gif)
   <br/>
 - A user registers an account to save anime titles to bookmark list. No registered email results in fail popup. User can also search anime titles (does not need to be signed in).
-  ![](https://github.com/Tanzil748/ani-man_go/blob/main/gif/ani-mango_display.gif)
+  ![](https://github.com/Tanzil748/ani-man_go/blob/main/gif/aniGif_2.gif)
   <br/>
 
 - User can now see their list. All cards are clickable and redirect to information page. Firestore updates in real-time as user adds/delete titles.
-  ![](https://github.com/Tanzil748/ani-man_go/blob/main/gif/secondPart.gif)
+  ![](https://github.com/Tanzil748/ani-man_go/blob/main/gif/aniGif_3.gif)
 
 - Application also has a light mode if user prefers.
-  ![](https://github.com/Tanzil748/ani-man_go/blob/main/gif/secondPart.gif)
+  ![](https://github.com/Tanzil748/ani-man_go/blob/main/gif/aniGif_4.gif)
 
 ## Firebase
 
